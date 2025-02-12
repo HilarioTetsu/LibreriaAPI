@@ -8,14 +8,14 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "idiomas")
+@Table(name = "paises")
 @Data
-public class Idioma {
+public class Pais {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Short id;
 	
-	private String idioma;
+	private String pais;
 	
 }
