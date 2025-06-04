@@ -1,5 +1,6 @@
 package com.springboot.app.models.entities;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -13,18 +14,22 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "idiomas")
 @Data
-public class Idioma {
+@Table(name = "tipo_suscripcion")
+public class TipoSuscripcion {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Short id;
+	private Integer id;
 	
-	@Column(nullable = false)
-	private String idioma;
+	@Column(nullable = false,name="tipo_suscripcion")
+	private String tipoSuscripcion;
 	
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "idioma")
-	private List<Libro> libros;
+	@Column(precision = 10, scale = 2, nullable = false)
+	private BigDecimal costo;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "tipoSuscripcion")
+	private List<Suscripcion> suscripciones;
 	
 }

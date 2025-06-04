@@ -1,7 +1,6 @@
 package com.springboot.app.models.entities;
 
-import java.time.LocalDate;
-import java.util.List;
+import java.math.BigDecimal;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,36 +10,36 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "autores")
 @Data
-public class Autor {
-
+@Table(name = "operaciones")
+public class Operacion {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+		
 	@Column(nullable = false)
-	private String nombre;
+	private Integer cantidad;
 	
-	@Column(nullable = false)
-	private LocalDate fecha_nac;
+	@Column(precision = 10, scale = 2, nullable = false)
+	private BigDecimal monto;
 	
-	@Column(nullable = true)
-	private String email;
 	
-	@Column(nullable = true)
-	private String website;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_cliente")
+	private Cliente cliente;
+	
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="id_tipo_operacion",nullable = false)
+	private TipoOperacion tipoOperacion;
+	
 	
 	@ManyToOne
-	@JoinColumn(name = "id_pais",nullable = false)
-	private Pais nacionalidad;
-	
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "autor")
-	private List<LibroAutor> libroAutor;
-	
+	@JoinColumn(name = "id_libro",nullable = false)
+	private Libro libro;
 }
