@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.springboot.app.models.dao.IClienteDao;
 import com.springboot.app.models.entities.Cliente;
 
 @Service

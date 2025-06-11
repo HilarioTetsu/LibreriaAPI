@@ -1,4 +1,4 @@
-package com.springboot.app.models.services;
+package com.springboot.app.models.dao;
 
 import java.util.List;
 import java.util.Optional;

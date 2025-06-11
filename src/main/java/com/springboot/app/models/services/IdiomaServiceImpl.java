@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.springboot.app.models.dao.IIdiomaDao;
 import com.springboot.app.models.entities.Idioma;
 
 public class IdiomaServiceImpl implements IIdiomaService {
