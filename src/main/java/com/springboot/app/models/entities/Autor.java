@@ -72,11 +72,14 @@ public class Autor {
 	
 	@PrePersist
     public void prePersist() {
-        this.fechaCreacion = LocalDateTime.now();       
+        this.fechaCreacion = LocalDateTime.now();
+        this.usuarioCreacion="admin";
+        this.status=1;
     }
 
     @PreUpdate
     public void preUpdate() {
+    	this.usuarioCreacion="admin";
         this.fechaModificacion = LocalDateTime.now();        
     }
 	

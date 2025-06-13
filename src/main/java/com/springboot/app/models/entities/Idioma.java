@@ -30,7 +30,7 @@ public class Idioma {
 	@Column(nullable = false)
 	private String idioma;
 	
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "idioma")
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "idioma")	
 	private List<Libro> libros;
 	
 	@Column(name = "fecha_creacion")
